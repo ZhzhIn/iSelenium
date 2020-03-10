@@ -1,4 +1,4 @@
-package com.hogwarts.base;
+package com.hogwarts.java.base;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;

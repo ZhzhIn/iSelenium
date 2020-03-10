@@ -1,4 +1,4 @@
-package com.hogwarts.base;
+package com.hogwarts.java.base;
 
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.HtmlUnitDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.*;
@@ -19,7 +20,7 @@ public abstract class WebUIBase {
     private String propFileName = "iselenium.properties";
 
     protected String testcaseName = "";
-    protected String curBrowser = "firefox"; //默认浏览器是firefox
+    protected String curBrowser = "nogui"; //默认浏览器是nogui
     protected WebDriver driver;
     protected WebDriver.Navigation navigation;
     protected String firefoxPath = "";
@@ -53,11 +54,13 @@ public abstract class WebUIBase {
         } else if (curBrowser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", chromePath);
             driver = new ChromeDriver();
-        } else if (curBrowser.equalsIgnoreCase("nogui")) {
+        } else if (curBrowser.equalsIgnoreCase("noheader")) {
             System.setProperty("webdriver.chrome.driver", chromePath);
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--headless");
             driver = new ChromeDriver(chromeOptions);
+        } else if (curBrowser.equalsIgnoreCase("nogui")) {
+            driver = new HtmlUnitDriver();
         } else {
             System.setProperty("webdriver.firefox.bin", firefoxPath);
             System.setProperty("javax.xml.parsers.DocumentBuilderFactory", "com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl");
