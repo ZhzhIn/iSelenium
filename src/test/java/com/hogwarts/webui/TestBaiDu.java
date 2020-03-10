@@ -1,4 +1,4 @@
-package com.hogwarts.java.webui;
+package com.hogwarts.webui;
 
 import com.hogwarts.base.*;
 import org.apache.log4j.Logger;
