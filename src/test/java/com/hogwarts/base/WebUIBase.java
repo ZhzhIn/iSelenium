@@ -115,7 +115,7 @@ public abstract class WebUIBase {
         }
 
         if (value.equalsIgnoreCase("firefox") || value.equalsIgnoreCase("chrome")
-                || value.equalsIgnoreCase("nogui")) {
+                || value.equalsIgnoreCase("nogui" )|| value.equalsIgnoreCase("noheader") ){
             curBrowser = value.toLowerCase();
         }
     }
@@ -126,5 +126,5 @@ public abstract class WebUIBase {
         } catch (InterruptedException e) {
 
         }
-    }
-}
+                }
+                }
